@@ -8,8 +8,11 @@ app.use('/files', express.static(__dirname + '/files'));
 
 app.use('/files', serveIndex(__dirname + '/files'));
 
+app.use('/bower_components', express.static(__dirname + '/static/bower_components'));
+app.use(express.static(__dirname + '/static/app'));
+
 app.use(function(request, response) {
-  response.end('<h1>Hello world</h1>');
+  redirect('/index.html');
 });
 
 app.listen(port);
