@@ -1,0 +1,23 @@
+{
+  "name": "file-browser",
+  "version": "0.0.0",
+  "description": "Simple file-browser with comments and simple statistics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcin-wosinek/file-browser.git"
+  },
+  "keywords": [
+    "node",
+    "file",
+    "browser"
+  ],
+  "author": "Marcin Wosinek",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/marcin-wosinek/file-browser/issues"
+  }
+}
