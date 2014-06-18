@@ -21,7 +21,12 @@ var router = express.Router();
 router.get('/files', function (request, response) {
 
   fs.readdir(__dirname + FILES_DIR, function (err, files) {
-    var objArray = _.map(files, function (fileName) { return { name: fileName}});
+    var objArray = _.chain(files)
+      .filter(function (fileName) {return !!fileName.match(/.*dmp/)})
+      .map(function (fileName) { return { name: fileName}})
+      .value();
+
+  console.log(objArray);
     db.all(function (err, value) {
 
       if (!value) {
