@@ -19,5 +19,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/marcin-wosinek/file-browser/issues"
+  },
+  "dependencies": {
+    "express": "~4.4.3",
+    "serve-index": "~1.1.1"
   }
 }
