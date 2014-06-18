@@ -12,7 +12,16 @@ angular.module('fileBrowserApp')
   .service('Files', function Files($http) {
     return {
       get: function () {
-        return $http.get('/files/', {headers: {Accept: "application/json"}});
+        return $http.get('/api/files/', {headers: {Accept: "application/json"}});
+      },
+      remove: function () {
+        return $http['delete']('/api/files/' + name);
+      },
+      upvote: function (name) {
+        return $http.post('/api/upvote/' + name);
+      },
+      downvote: function (name) {
+        return $http.post('/api/downvote/' + name);
       }
     };
   });

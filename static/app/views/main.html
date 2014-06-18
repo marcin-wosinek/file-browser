@@ -18,17 +18,17 @@
   <tbody>
     <tr ng-repeat="file in files">
       <td>
-        {{file}}
+        {{file.name}}
       </td>
       <td>
-        0
+        {{file.rate || 0}}
       </td>
       <td>
-        <button class="btn btn-success btn-mini">success</button>
-        <button class="btn btn-warning btn-mini">failed</button>
+        <button class="btn btn-success btn-mini" ng-click="upvoteFile(file.name)">success</button>
+        <button class="btn btn-warning btn-mini" ng-click="downvoteFile(file.name)">failed</button>
       </td>
       <td>
-        <button class="btn btn-danger btn-mini">Delete file</button>
+        <button class="btn btn-danger btn-mini" ng-click="deleteFile(file.name)">Delete file</button>
       </td>
     </tr>
   </tbody>

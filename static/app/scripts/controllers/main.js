@@ -17,11 +17,14 @@ angular.module('fileBrowserApp')
     });
 
     $scope.deleteFile = function (fileName) {
+      Files.remove(fileName);
     };
 
     $scope.upvoteFile = function (fileName) {
-    }
+      Files.upvote(fileName);
+    };
 
     $scope.downvoteFile = function (fileName) {
-    }
+      Files.downvote(fileName);
+    };
   });
