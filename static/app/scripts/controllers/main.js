@@ -8,10 +8,20 @@
  * Controller of the fileBrowserApp
  */
 angular.module('fileBrowserApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+  .controller('MainCtrl', function ($scope, Files) {
+    $scope.files = [
     ];
+
+    Files.get().success(function (response) {
+      $scope.files = response;
+    });
+
+    $scope.deleteFile = function (fileName) {
+    };
+
+    $scope.upvoteFile = function (fileName) {
+    }
+
+    $scope.downvoteFile = function (fileName) {
+    }
   });

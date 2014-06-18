@@ -14,7 +14,8 @@ angular
     'ngResource',
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.headers.common.headers = {Accept: "application/json"};
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
