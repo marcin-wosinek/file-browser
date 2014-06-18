@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "express": "~4.4.3",
-    "serve-index": "~1.1.1"
+    "serve-index": "~1.1.1",
+    "jfs": "~0.1.7",
+    "underscore": "~1.6.0"
   }
 }
