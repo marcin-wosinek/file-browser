@@ -39,12 +39,31 @@ router.get('/files', function (request, response) {
 
 var changeVotes = function (fileName, change, response) {
   db.get(fileName, function(err, value){
-    value += change;
+    if (value) {
+      value += change;
+    }
+    else {
+      value = change;
+    }
+
     db.save(fileName, value, function(err, obj){
       response.json({result: "success"});
     });
   });
 };
+
+router.delete('/files/:file', function (request, response) {
+  var fileName = request.params.file;
+
+  fs.unlink(__dirname + FILES_DIR + '/' + fileName, function (err) {
+    if (err) {
+      response.json({result: "failed", message: err});
+    }
+    else {
+      response.json({result: "success"});
+    }
+  })
+});
 
 router.post('/downvote/:file', function (request, response) {
   var fileName = request.params.file;

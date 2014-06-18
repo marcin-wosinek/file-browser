@@ -14,7 +14,7 @@ angular.module('fileBrowserApp')
       get: function () {
         return $http.get('/api/files/', {headers: {Accept: "application/json"}});
       },
-      remove: function () {
+      remove: function (name) {
         return $http['delete']('/api/files/' + name);
       },
       upvote: function (name) {
