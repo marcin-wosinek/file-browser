@@ -8,17 +8,30 @@
  * Controller of the fileBrowserApp
  */
 angular.module('fileBrowserApp')
-  .controller('MainCtrl', function ($scope, Files) {
+  .controller('MainCtrl', function ($scope, Files, Settings) {
+
+    var regex = new RegExp(Settings.filter);
     var loadData = function () {
       Files.get().success(function (response) {
         $scope.files = response;
       });
     };
 
-    loadData()
+    loadData();
+    $scope.downloadUrl = Settings.downloadUrl;
+
+    $scope.useFilter = true;
+
+    $scope.toggleFilter = function() {
+      $scope.useFilter = $scope.useFilter ? false : true;
+    };
 
     $scope.files = [
     ];
+
+    $scope.filterMethod = function(file) {
+      return !$scope.useFilter || regex.test(file.name);
+    };
 
     $scope.deleteFile = function (fileName) {
       Files.remove(fileName)

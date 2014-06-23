@@ -22,7 +22,6 @@ router.get('/files', function (request, response) {
 
   fs.readdir(__dirname + FILES_DIR, function (err, files) {
     var objArray = _.chain(files)
-      .filter(function (fileName) {return !!fileName.match(/.*dmp/)})
       .map(function (fileName) { return { name: fileName}})
       .value();
 
